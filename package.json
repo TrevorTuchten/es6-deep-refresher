@@ -1,0 +1,19 @@
+{
+  "name": "es6-deep-refresher",
+  "version": "0.0.1",
+  "description": "oreilly es6",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/TrevorTuchten/es6-deep-refresher.git"
+  },
+  "author": "Trevor Tuchten",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TrevorTuchten/es6-deep-refresher/issues"
+  },
+  "homepage": "https://github.com/TrevorTuchten/es6-deep-refresher#readme"
+}
