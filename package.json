@@ -6,10 +6,6 @@
   "scripts": {
     "test": "test"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/TrevorTuchten/es6-deep-refresher.git"
-  },
   "author": "Trevor Tuchten",
   "license": "MIT",
   "bugs": {
