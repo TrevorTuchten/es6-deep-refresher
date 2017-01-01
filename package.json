@@ -1,18 +1,18 @@
 {
-  "name": "es6-deep-refresher",
-  "version": "0.0.1",
-  "description": "oreilly es6",
-  "main": "main.js",
-  "scripts": {
-    "test": "test"
-  },
-  "author": "Trevor Tuchten",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/TrevorTuchten/es6-deep-refresher/issues"
-  },
-  "homepage": "https://github.com/TrevorTuchten/es6-deep-refresher#readme",
-  "dependencies": {
-    "live-server": "^1.1.0",
-  },
+	"name": "es6-deep-refresher",
+	"version": "0.0.1",
+	"description": "oreilly es6",
+	"main": "main.js",
+	"scripts": {
+		"test": "test"
+	},
+	"author": "Trevor Tuchten",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/TrevorTuchten/es6-deep-refresher/issues"
+	},
+	"homepage": "https://github.com/TrevorTuchten/es6-deep-refresher#readme",
+	"dependencies": {
+		"live-server": "^1.1.0"
+	}
 }
