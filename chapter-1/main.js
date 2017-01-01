@@ -1,9 +1,10 @@
+$(document).ready(function() {
+	'use strict';
+	paper.install(window);
+	paper.setup(document.getElementById('mainCanvas'));
+	
+	let c = Shape.Circle(200, 200, 50);
+	c.fillColor = 'green';
 
-let hello = $('.hello');
-
-function sayHello() {
-	console.log('hello ', hello ); //TODO: Remove Me!!
-	hello.css('color', '#C13737')
-	console.log('main.js Loaded'); //TODO: Remove Me!!
-}
-sayHello()
+	paper.view.draw();
+});

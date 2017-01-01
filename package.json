@@ -2,7 +2,7 @@
   "name": "es6-deep-refresher",
   "version": "0.0.1",
   "description": "oreilly es6",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "test": "test"
   },
@@ -11,5 +11,8 @@
   "bugs": {
     "url": "https://github.com/TrevorTuchten/es6-deep-refresher/issues"
   },
-  "homepage": "https://github.com/TrevorTuchten/es6-deep-refresher#readme"
+  "homepage": "https://github.com/TrevorTuchten/es6-deep-refresher#readme",
+  "dependencies": {
+    "live-server": "^1.1.0",
+  },
 }
