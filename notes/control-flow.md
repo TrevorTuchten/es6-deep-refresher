@@ -235,3 +235,73 @@ while (funds > 1 && funds < 100) {
 }
 	console.log(`\tending funds: ${funds}`);
 ```
+
+##Control Flow Statements in Javascript
+
+Broadly speaking, control flow can be broken into two subcategories: conditional (or branching) control flow and loop control flow. Conditional control flow (if and if...else, and switch) represent a fork in the road: there are two or more paths to take, and we take one, but we don’t double back. Loop control flow (while, do...while, and for loops) repeat their bodies until a condition is met. 
+
+##Control Flow Exceptions
+
+There are four statements that can alter the normal processing of flow control. You can think of these as control flow “trump cards”:
+
+ * break
+	* Breaks out of loop early.
+ * continue
+	* Skip to the next step in the loop.
+ * return
+	* Exits the current function (regardless of control flow).
+ * throw
+	* Indicates an exception that must be caught by an exception handler (even if it’s outside of the current control flow statement).
+
+##Chaining if...else Statements
+
+```javascript
+if (new Date().getDay() === 3) {   // new Date().getDay() returns the current
+	totalBet = 1;                 // numeric day of the week, with 0 = Sunday
+} else if(funds === 7) {
+	totalBet = funds;
+} else {
+	console.log("No superstition here!");
+}
+```
+By combining if...else statements this way, we’ve created a three-way choice, instead of simply a two-way choice.
+
+###Metasyntax
+
+The term metasyntax means a syntax that, in turn, describes or communicates yet another syntax.  
+There are only two real elements to this metasyntax: something surrounded by square brackets is optional, and an ellipsis (three periods, technically) indicates “more goes here.” Words are used as placeholders, and their meaning is clear from context. For example, statement1 and statement2 represent two different statements, expression is something that results in a value, and condition refers to an expression that is treated as truthy or falsy.
+
+__while statement__
+
+```javascript
+while(condition)
+	statement
+```
+While condition is truthy, statement will be executed.  
+
+__if...else statement__
+
+```javascript
+if(condition)
+	statement1
+	[else
+		statement2]
+```
+If condition is truthy, statement1 will be executed; otherwise, statement2 will be executed (assuming the else part is present).
+
+__do...while statement__
+
+```javascript
+do
+	statement
+while(condition);
+```
+statement is executed at least once, and is repeatedly executed as long as condition is truthy.
+
+__for statement__
+
+```javascript
+for([initialization]; [condition]; [final-expression])
+	statement
+```
+Before the loop runs, initialization is executed. As long as condition is true, statement is executed, then final-expression is executed before testing condition again.
