@@ -36,10 +36,10 @@ It is conventional (but not required) for constants that refer to a specific num
 ##Identifier Names
 
 Variable and constant names (as well as function names, which we’ll cover in Chapter 6) are called identifiers, and they have naming rules:  
-> - Identifiers must start with a letter, dollar sign ($), or underscore (_).  
-> - Identifiers consist of letters, numbers, the dollar sign ($), and underscore (_).  
-> - Unicode characters are allowed (for example, π or ö).  
-> - Identifiers cannot be a reserved word (see Appendix A).  
+ - Identifiers must start with a letter, dollar sign ($), or underscore (_).  
+ - Identifiers consist of letters, numbers, the dollar sign ($), and underscore (_).  
+ - Unicode characters are allowed (for example, π or ö).  
+ - Identifiers cannot be a reserved word (see Appendix A).  
 
 #####Camel case
 
@@ -53,9 +53,9 @@ current_temp_c; an_identifier_name (slightly less popular).
 ```
 
 It is also advisable to adhere to the following conventions:  
-> - Identifiers shouldn’t start with a capital letter except for classes. 
-> - Very often, identifiers that start with one or two underscores are used to represent special or “internal” variables. >Unless you need to create your own special category of variables, avoid starting variable names with an underscore. 
-> - When using jQuery, identifiers that start with a dollar sign conventionally
+ - Identifiers shouldn’t start with a capital letter except for classes. 
+ - Very often, identifiers that start with one or two underscores are used to represent special or “internal” variables. >Unless you need to create your own special category of variables, avoid starting variable names with an underscore. 
+ - When using jQuery, identifiers that start with a dollar sign conventionally
 
 ##Literals
 
@@ -87,10 +87,10 @@ JavaScript—along with most other programming languages—approximates real num
 For example, if you ask JavaScript to calculate 0.1 + 0.2, it will return 0.30000000000000004. This does not mean that JavaScript is “broken” or bad at math: it’s simply an unavoidable consequence of approximating infinite values in finite memory.
 
 JavaScript recognizes four types of numeric literal: 
-> - decimal
-> - binary 
-> - octal 
-> - hexadecimal
+ - decimal
+ - binary 
+ - octal 
+ - hexadecimal
 
 ```javascript
 let count = 10;           // integer literal; count is still a double 
@@ -359,9 +359,9 @@ s.rating;          // undefined
 ##Arrays
 
 Arrays in JavaScript have the following properties:
-> • Array size is not fixed; you can add or remove elements at any time.
-> • Arrays are not homogeneous; each individual element can be of any type.
-> • Arrays are zero-based. That is, the first element in the array is element 0.
+ • Array size is not fixed; you can add or remove elements at any time.
+ • Arrays are not homogeneous; each individual element can be of any type.
+ • Arrays are zero-based. That is, the first element in the array is element 0.
 
 To create an array literal in JavaScript, use square brackets, with the elements of the array separated by commas:
 
@@ -534,8 +534,8 @@ const b2 = Boolean(n);  // false
 ##Conclusion
 
 the key points you want to take away from this chapter are as follows:
-> • JavaScript has six primitive types (string, number, boolean, null, undefined, and symbol) and an object type.
-> • All numbers in JavaScript are double-precision floating-point numbers.
-> • Arrays are special types of objects, and along with objects, represent very powerful and flexible data types.
-> • Other data types you will be using often (dates, maps, sets, and regular expressions) are special types of objects.
+ • JavaScript has six primitive types (string, number, boolean, null, undefined, and symbol) and an object type.
+ • All numbers in JavaScript are double-precision floating-point numbers.
+ • Arrays are special types of objects, and along with objects, represent very powerful and flexible data types.
+ • Other data types you will be using often (dates, maps, sets, and regular expressions) are special types of objects.
 
