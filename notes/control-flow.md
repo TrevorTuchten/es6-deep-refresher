@@ -85,3 +85,146 @@ function randFace() {
 One of the shaded boxes in our flowchart is “place bets,” which we’ll fill out now. So how does Thomas place bets? Thomas has a ritual, as it turns out. He reaches into his right pocket and randomly pulls out a handful of coins (as few as one, or as many as all of them). That will be his funds for this round. Thomas is superstitious, however, and believes the number 7 is lucky. So if he happens to pull out 7 pence, he reaches back into his pocket and bets all his money on the “Heart” square. Otherwise, he randomly places the bet on some number of squares  
 
 ![place-bets](./images/place-bets-flowChart.png)
+
+The decision node in the middle (totalBet === 7) here represents an if...else statement. Note that, unlike the while statement, it doesn’t loop back on itself: the decision is made, and then you move on. We translate this flowchart into JavaScript:
+
+```javascript
+const bets = {
+	crown   : 0,
+	anchor  : 0,
+	heart   : 0,
+	spade   : 0,
+	club    : 0,
+	diamond : 0
+};
+let totalBet = rand(1, funds);
+if(totalBet === 7) {
+	totalBet = funds;
+	bets.heart = totalBet;
+} else {
+	// distribute total bet
+}
+funds = funds - totalBet;
+```
+
+##do...while Loop
+
+When Thomas doesn’t pull out 7 pence by chance, he randomly distributes the funds among the squares. He has a ritual for doing this: he holds the coins in his right hand, and with his left hand, selects a random number of them (as few as one, and as many as all of them), and places it on a random square (sometimes he places a bet on the same square more than once). We can now update our flowchart to show this random distribution of the total bet, shown here
+
+![place-bets](./images/distribute-bets-flowChart.png)
+
+Note how this differs from the while loop: the decision comes at the end, not the beginning. do...while loops are for when you know you always want to execute the body of the loop at least once (if the condition in a while loop starts off as falsy, it won’t even run once).  
+
+```javascript
+let remaining = totalBet;
+do {
+	let bet = rand(1, remaining);
+	let face = randFace();
+	bets[face] = bets[face] + bet;
+	remaining = remaining - bet;
+} while(remaining > 0);
+```
+
+##forLoop
+
+The for loop is extremely flexible (it can even replace a while or do...while loop), but it’s best suited for those times when you need to do things a fixed number of times (especially when you need to know which step you’re on), which makes it ideal for rolling a fixed number of dice (three, in this case). Let’s start with our “roll dice” flowchart
+
+![place-bets](./images/roll-dice-flowChart.png)
+
+A for loop consists of three parts: the initializer (roll = 0), the condition (roll < 3), and the final expression (roll++).
+
+```javascript
+const hand = [];
+for(let roll = 0; roll < 3; roll++) {
+	hand.push(randFace());
+}
+```
+
+##if Statement
+
+ We have three random faces in the hand array, so we’ll use another for loop to see if any of them are winners. To do that, we’ll use an if statement (this time without an else clause).  
+Notice the difference between an if...else statement and an if statement: only one of the if statement’s branches lead to an action, whereas both of the if...else statement’s do.
+
+```javascript
+let winnings = 0;
+for(let die=0; die < hand.length; die++) {
+	let face = hand[die];
+	if(bets[face] > 0) winnings = winnings + bets[face];
+}
+funds = funds + winnings;
+```
+
+Note that, instead of counting to 3 in the for loop, we count to hand.length (which happens to be 3). The goal of this part of the program is to calculate the winnings for any hand. While the rules of the game call for a hand of three dice, the rules could change…or perhaps more dice are given as a bonus, or fewer dice are given as a penalty. The point is, it costs us very little to make this code more generic. If we change the rules to allow more or fewer dice in a hand, we don’t have to worry about changing this code: it will do the correct thing no matter how many dice there are in the hand
+
+![place-bets](./images/collect-winnings-flowChart.png)
+
+##Putting it all Together
+
+```javascript
+// returns a random integer in the range [m, n] (inclusive)
+function rand(m, n) {
+	return m + Math.floor((n - m + 1)*Math.random());
+}
+// randomly returns a string representing one of the six
+// Crown and Anchor faces
+function randFace() {
+	return ["crown", "anchor", "heart", "spade", "club", "diamond"]
+		[rand(0, 5)];
+}
+
+let funds = 50;     // starting conditions
+let round = 0;
+
+while(funds > 1 && funds < 100) {
+	round++;
+	console.log(`round ${round}:`);
+	console.log(`\tstarting funds: ${funds}p`);
+	// place bets
+	let bets = {
+		crown   : 0,
+		anchor  : 0,
+		heart   : 0,
+		spade   : 0,
+		club    : 0,
+		diamond : 0 };
+	let totalBet = rand(1, funds);
+
+	if(totalBet === 7) {
+		totalBet = funds;
+		bets.heart = totalBet;
+	} else {
+		// distribute total bet
+		let remaining = totalBet;
+		do {
+			let bet = rand(1, remaining);
+			let face = randFace();
+
+			bets[face] = bets[face] + bet;
+			remaining = remaining - bet;
+		} while(remaining > 0)
+	}
+	funds = funds - totalBet;
+	console.log('\tbets: ' +
+		Object.keys(bets).map(face => `${face}: ${bets[face]} pence`).join(', ') +
+		` (total: ${totalBet} pence)`);
+
+	// roll dice
+	const hand = [];
+
+	for(let roll = 0; roll < 3; roll++) {
+		hand.push(randFace());
+	}
+	console.log(`\thand: ${hand.join(', ')}`);
+	// collect winnings
+	let winnings = 0;
+	
+	for(let die=0; die < hand.length; die++) {
+			let face = hand[die];
+			if(bets[face] > 0) winnings = winnings + bets[face];
+	}
+	funds = funds + winnings;
+	console.log(`\twinnings: ${winnings}`);
+	}
+	console.log(`\tending funs: ${funds}`);
+
+```
